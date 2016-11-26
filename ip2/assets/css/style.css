@@ -1,0 +1,53 @@
+body{
+  background-image: url("img/landing.jpg");
+}
+
+  li{
+    display: inline;
+    align-items: center;
+    text-decoration: none;
+    }
+
+logo{
+  float: left;
+
+}
+img{
+  float: left;
+  margin: 15px 0px 0px 80px
+  border-bottom: 3px solid #CBBB9B;
+}
+#wrapper{
+  width: 960px;
+  height: auto;
+  background: #DAD5C1;
+  border-left: 5px solid #A09885;
+  border-right: 5px solid #A09885;
+  overflow: auto;
+  margin: 0 auto;
+  padding: 10px;
+
+}
+
+}
+#header{
+width: 100%auto;
+width: 100px
+border-bottom:3px #7C7763;
+}
+#logo{
+float: right;;
+margin: 15px 0px 0px 80px;
+}
+#links{
+float: right;
+margin: 20px 30px 0px 0px;
+border-bottom: 3px solid #7C7063;
+text-decoration: none;
+display: inline-block;
+
+     }
+#header{
+width: 100%;
+
+}
