@@ -1,48 +1,114 @@
-body {
-    //background: #CBBB9B;
-    font-family: fantasy;
-    background-image: url("img/landing.jpg");
-    margin: 0;
-    padding: 0;
+#logoJumbo {
+    background-image: url("../img/backgrounds/landing.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
-li {
-    list-style: none;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-}
-
-.center {
-    margin: auto;
-    width: 60%;
-    //border: 3px solid #73AD21;
-    //padding: 10px;
-}
-
-h2 {
-    text-align: center;
-}
-
-#social {
-    float: right;
-    margin: 20px 30px 0px 0px;
-    border-bottom: 3px solid #7C7063;
-}
-
-
-}
 #logo {
-    width: 300px;
-    height: 300px;
-    align-items: center;
-    shape-outside: circle(50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 25px;
 }
-links {
-    text-decoration: none;
+
+#logoJumbo, h2 {
+    font-weight: lighter;
+    color: #fff;
+    text-align: center;
 }
-#kibuyu {
-    display: flex;
-    align-items: center;
-    float: right;
+
+#bold {
+    font-weight: bold;
+}
+
+#breakfast {
+    background-image: url("../img/foodtop/breakfast.jpg");
+}
+
+#lunch {
+    background-image: url("../img/foodtop/lunch.jpg");
+}
+
+#dinner {
+    background-image: url("../img/foodtop/dinner.jpg");
+}
+
+.happyhour {
+    background-color: bisque;
+    height: 105px;
+}
+
+.partytime {
+    background-color: #F15A29;
+    height: 105px;
+}
+
+.partytime, h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.meal {
+    background-position: center;
+    height: 210px;
+}
+
+.meal h2 {
+    text-align: center;
+    padding: 70px;
+    font-style: italic;
+    font-weight: lighter
+}
+
+#section4 {
+    background-image: url("../img/backgrounds/foodsBg.jpg");
+}
+
+#section6 {
+    background-image: url("../img/backgrounds/subscribe.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#section6 h3 {
+    text-align: center;
+    color: #fff;
+}
+
+#section7 {
+    background-color: #F15A29;
+}
+
+#section7 h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#section7 h3 {
+    text-align: center;
+    color: #fff;
+}
+
+#section7 p {
+    text-align: center;
+    color: #fff;
+}
+
+.social {
+    text-align: center;
+}
+
+.thumb {
+    padding: 50px;
+}
+
+#mail {
+    background-image: url('../img/subscribe.jpg');
+    text-align: center;
+}
+
+#section7 {
+    width: 100%;
+    height: 200px;
 }
