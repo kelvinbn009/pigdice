@@ -81,7 +81,7 @@
                         <br>We also produce delicous drinks.</br>
                     </p>
                     <div class="button3">
-                        <button type="button">View Gallery <i class="fa fa-long-arrow-right" aria-hidden="true" ></i></button>
+                        <button type="button">View Gallery <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                     </div>
 
                 </article>
@@ -187,14 +187,14 @@
                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     </div>
                     <div class="col-sm-5">
-                        <div class="border-left"> <h4>About menu</h4>
+                        <div class="border-left" h4>About menu</h4>
                             <p>We are menu a little team of<br>7 members aliquam molestie, holla varius ac,<br>mbers aliquam molestie, holla varius ac<br>rs aliquam molestie, holla varius ac<br> tellus. Vestibulum ut nulla aliquam risus rutrum.</P>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="subscribe">
-                <div class="row">
+                <div class=row>
                     <div id="substate">
                         <p><strong>Get our daily food items delivered to your email<strong></p>
         </div>
@@ -214,20 +214,20 @@
 
     <div class="row">
         <div id=logo_white>
-            <p><img src="img/logo_white.png"><b>Menu</b></p>
+            <p><a href="#"><img src="img/logo_white.png"><a/> Menu</p>
         </div>
         <div id="motto">
             <p>Thats What We Are</p>
         </div>
 
-        <div class="Srow">
+        <div class=row>
             <div id="sociallogo">
-                <img src="img/facebook.png "><i class="fa fa-facebook" aria-hidden="true"></i>
-                <img src="img/twitter.png "><i class="fa fa-twitter" aria-hidden="true"></i>
-                <img src="img/pinterest.png "><i class="fa fa-pinterest" aria-hidden="true"></i>
+                <!-- <img src="img/facebook.png "> --><i class="fa fa-facebook" aria-hidden="true"></i>
+                <!--<img src="img/twitter.png ">--><i class="fa fa-twitter" aria-hidden="true"></i>
+                <!--<img src="img/pinterest.png ">--><i class="fa fa-pinterest" aria-hidden="true"></i>
             </div>
         </div>
-        <div class="row">
+        <div class=row>
             <div id="copyright">
                 <p>2016 menu restaurant</p>
             </div>
@@ -240,4 +240,4 @@
 
 </body>
 
-</html
+</html>

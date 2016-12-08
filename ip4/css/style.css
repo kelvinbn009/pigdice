@@ -1,0 +1,14 @@
+.main {
+    position: absolute;
+    left: 300px;
+    top: 92px;
+    right: 0;
+    bottom: 0;
+}
+.right{
+    position: absolute;
+    right: 50;
+    top: 92px;
+    bottom: 0;
+    width: 200px;
+}
