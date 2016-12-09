@@ -1,71 +1,86 @@
-var log = logger('output'),
-    rollBtn = getById('roll'),
-    resetBtn = getById('reset'),
-    nDices = getById('numofdices'),
-    nSides = getById('numofsides'),
-    dices = null,
-    sides = null,
-    rolls = [],
-    doubles=0;
-
-rollBtn.addEventListener('click',rollHandler);
-resetBtn.addEventListener('click', resetHandler);
-
-
-function rollHandler() {
-    resetView();
-    sides = nSides.value;
-    dices = nDices.value;
-    doubles=0;
-    rolls=[];
-    
-    if(validateInput()) {
-        log('invalid input');
-        return;
-    }
-    //rolling simulation
-    var rolled;
-    while (dices--) {
-        rolled = Math.ceil(Math.random()*sides);
-        log('For Dice #'+(dices+1)+' Your Rolled: '+ rolled  +'!');
-        rolls.push(rolled);
-    }
-
-    //finding doubles
-    //first sort: you can use any way to sort doesnt matter
-    rolls.sort(function(a,b){
-      return (a>b?1:(a<b)?0:-1);
-    });
-    
-    for (var i =0; i < rolls.length; i++) {
-        if (rolls[i] == rolls[i+1]) {
-            doubles++;
-            i++;
-        }
-    }
-    if (doubles>0) log("You rolled " + doubles + " doubles");
-    
+var turn = 0; // 0 = human, 1 = computer
+var AC = 0;
+var AC_saved = 0;
+var BC = 0;
+var BC_saved = 0;
+var ra = 0;
+var rb = 0;
+function CheckWin()
+{
+var p1c = document.F.AC.value;
+var p2c = document.F.BC.value;
+if (p1c > 99) 
+{ alert("You have won!"); }
+if (p2c > 99) 
+{ alert("The computer has won!"); }
 }
 
-function resetHandler(){
-    resetView();
-    nDices.value = nSides.value = '';
+function Roll1()
+{
+if (turn == 1)
+{
+alert("You are a cheater! It is the computer's turn!");
+return;
+}
+var da1 = Math.floor(Math.random()*6)+1;
+var da2 = Math.floor(Math.random()*6)+1;
+BC_saved = eval(document.F.BC.value);
+document.F.IA.value = eval(document.F.IA.value) + 1;
+document.F.IB.value = "0";
+rb = 0;
+document.F.DA1.value = da1;
+document.F.DA2.value = da2;
+var sa = da1 + da2;
+ra = ra + sa;
+if (da1 == 1 | da2 == 1)
+{ 
+alert("You rolled a 1! Your turn has ended\nClick on the Computer's Button"); 
+turn = 1;
+sa = 0; ra = 0; 
+document.F.AC.value = AC_saved;
+}
+if (da1 == 1 && da2 == 1)
+{ 
+alert("Double ONES! You are set to zero and your turn has ended"); 
+sa = 0; ra = 0; document.F.AC.value = 0;
+turn = 1;
+}
+document.F.AR.value = ra;
+document.F.SA.value = sa;
+document.F.AC.value = eval(document.F.AC.value) + sa;
+CheckWin();
 }
 
-
-function resetView() {
-    getById('output').innerText = '';
+function Roll2()
+{
+AC_saved = eval(document.F.AC.value);
+var cc = 2 + Math.floor(2 * Math.random());
+for (c=0; c<cc; c++)
+{
+var db1 = Math.floor(Math.random()*6)+1;
+var db2 = Math.floor(Math.random()*6)+1;
+document.F.IA.value = "0";
+document.F.IB.value = eval(document.F.IB.value) + 1;
+document.F.DB1.value = db1;
+document.F.DB2.value = db2;
+var sb = db1 + db2;
+rb = rb + sb;
+if (db1 == 1 && db2 == 1)
+{ 
+alert("Double ONES! The computer's score is set to zero"); 
+sb = 0; rb = 0; document.F.BC.value = 0; c = cc;
 }
-
-
-function validateInput(){
-    return (isNaN(sides) || sides == '' || isNaN(dices) || dices == '');
+else if (db1 == 1 | db2 == 1)
+{ 
+alert("The Computer rolled a one!");
+sb = 0; rb = 0; 
+document.F.BC.value = BC_saved; c = cc;
 }
-
-
-function logger(x) { var output = getById(x); 
-    return function(text){
-        output.innerText += text + '\n';
-};}
-
-function getById(x){ return document.getElementById(x); }
+document.F.SB.value = sb;
+document.F.BR.value = rb;
+document.F.BC.value = eval(document.F.BC.value) + sb;
+}
+alert("The computer has completed its turn. It's your move");
+turn = 0;
+CheckWin();
+}
