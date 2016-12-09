@@ -1,14 +1,15 @@
-.main {
-    position: absolute;
-    left: 300px;
-    top: 92px;
-    right: 0;
-    bottom: 0;
+#displaydice {
+    font-size: 10em;
+    padding: 0;
+    margin: 0;
+    height: 163px;
 }
-.right{
-    position: absolute;
-    right: 50;
-    top: 92px;
-    bottom: 0;
-    width: 200px;
+
+#main {
+    text-align: center;
+}
+
+.instructions {
+    text-align: center;
+    padding-top: 10em;
 }

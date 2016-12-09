@@ -1,7 +1,15 @@
-.row {
-    display: inline-block;
+#displaydice {
+    font-size: 10em;
+    padding: 0;
+    margin: 0;
+    height: 163px;
 }
 
-.row-fluid {
-    display: inline-block;
+#main {
+    text-align: center;
+}
+
+.instructions {
+    text-align: center;
+    padding-top: 10em;
 }

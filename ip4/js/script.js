@@ -1,67 +1,71 @@
-var die = 6;
-var dice = 2;
-var player1 = 0;
-var player2 = 0;
+var log = logger('output'),
+    rollBtn = getById('roll'),
+    resetBtn = getById('reset'),
+    nDices = getById('numofdices'),
+    nSides = getById('numofsides'),
+    dices = null,
+    sides = null,
+    rolls = [],
+    doubles=0;
+
+rollBtn.addEventListener('click',rollHandler);
+resetBtn.addEventListener('click', resetHandler);
 
 
-function dice_roll(die, dice) {
-var roll = 0;
-for (loop=0; loop < dice; loop++) {
-roll = roll + Math.round(Math.random() * die) % die + 1;
+function rollHandler() {
+    resetView();
+    sides = nSides.value;
+    dices = nDices.value;
+    doubles=0;
+    rolls=[];
+    
+    if(validateInput()) {
+        log('invalid input');
+        return;
+    }
+    //rolling simulation
+    var rolled;
+    while (dices--) {
+        rolled = Math.ceil(Math.random()*sides);
+        log('For Dice #'+(dices+1)+' Your Rolled: '+ rolled  +'!');
+        rolls.push(rolled);
+    }
+
+    //finding doubles
+    //first sort: you can use any way to sort doesnt matter
+    rolls.sort(function(a,b){
+      return (a>b?1:(a<b)?0:-1);
+    });
+    
+    for (var i =0; i < rolls.length; i++) {
+        if (rolls[i] == rolls[i+1]) {
+            doubles++;
+            i++;
+        }
+    }
+    if (doubles>0) log("You rolled " + doubles + " doubles");
+    
 }
-document.form.text.value = roll;
+
+function resetHandler(){
+    resetView();
+    nDices.value = nSides.value = '';
 }
-player1 = roll;
-// End -->
 
-<!-- player 2
-function dice_roll2(die, dice) {
-var roll = 0;
-for (loop=0; loop < dice; loop++) {
-roll = roll + Math.round(Math.random() * die) % die + 1;
+
+function resetView() {
+    getById('output').innerText = '';
 }
-//document.form.text.value = roll;
-alert(roll);
+
+
+function validateInput(){
+    return (isNaN(sides) || sides == '' || isNaN(dices) || dices == '');
 }
-player2 = roll;
-// End -->
 
-if player_1 = player_2 
-alert("DRAW!")
 
-else if player_1 > player_2
-alert("Player 1 is the winner!")
+function logger(x) { var output = getById(x); 
+    return function(text){
+        output.innerText += text + '\n';
+};}
 
-else if player_1 < player_2
-alert("Player 2 is the winner!")
-
-</script>
-
-<body>
-<form name=form>
-<table border=2 cellpadding=5>
-<tr>
-<td colspan=2 align=middle>No. of sides/dice</td>
-
-</tr>
-<tr>
-<td valign=top align=middle>
-<p><input type=radio checked name=sides onClick="die = 6">6 Sided
-</td>
-<td valign=top align=middle>
-<p><input name=number type=radio onClick="dice = 2" checked>
-2
-</td>
-</tr>
-<tr>
-<td align=middle colspan=4>
-<input type=button value="Roll Dice" name=button onClick="dice_roll(die, dice)">
-<input type=text size=10 name=text>
-</td>
-</tr>
-</table>
-</form>
-
-</center>
-</body>
-</html
+function getById(x){ return document.getElementById(x); }
